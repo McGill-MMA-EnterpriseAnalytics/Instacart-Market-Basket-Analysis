@@ -101,8 +101,8 @@ if uploaded_file is not None:
     
     # Display the predictions
     st.write("Predictions:")
-    st.dataframe(preprocessed_data.reset_index())  # Reset index to show product_id and user_id
-
+    display_data = preprocessed_data.reset_index()[['product_id', 'user_id', 'reordered']]
+    st.dataframe(display_data)
 # Add some instructions and information about the app
 st.sidebar.header('User Instructions')
 st.sidebar.text('Upload your dataset in CSV format.')
